@@ -41,6 +41,7 @@ public class RobotContainer {
   // The driver's controller
 
   static Joystick leftJoystick = new Joystick(OIConstants.kDriverControllerPort);
+  static Joystick rightJoystick = new Joystick(OIConstants.kDriverControllerPort);
 
   private XboxController m_coDriverController = new XboxController(OIConstants.kCoDriverControllerPort);
 
@@ -74,7 +75,7 @@ public class RobotContainer {
             m_robotDrive,
             () -> leftJoystick.getRawAxis(1),
             () -> leftJoystick.getRawAxis(0),
-            () -> leftJoystick.getRawAxis(2)));
+            () -> rightJoystick.getRawAxis(4)));
 
     driver.leftTrigger.whileHeld(new JogTurnModule(
         m_robotDrive,
