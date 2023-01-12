@@ -26,6 +26,7 @@ import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.SPI;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -82,7 +83,8 @@ public class DriveSubsystem extends SubsystemBase {
               CanConstants.BACK_RIGHT_MODULE_STEER_OFFSET)));
   // The gyro sensor
 
-  private final AHRS m_gyro = new AHRS(SPI.Port.kMXP, (byte) 200);
+  private final AHRS m_gyro = new AHRS(SerialPort.Port.kUSB);
+
 
   private PIDController m_xController = new PIDController(DriveConstants.kP_X, 0, DriveConstants.kD_X);
   private PIDController m_yController = new PIDController(DriveConstants.kP_Y, 0, DriveConstants.kD_Y);
